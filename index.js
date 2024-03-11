@@ -52,18 +52,36 @@
 //Bubble Sort
 
 // Using Bubble Sort
-let arr = [12, 32, 44, 2, 13, 41, 21];
+// let arr = [12, 32, 44, 2, 13, 41, 21];
 
-function sort(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-      if (arr[i] > arr[j]) {
-        let temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-      }
-    }
+// function sort(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = i + 1; j < arr.length; j++) {
+//       if (arr[i] > arr[j]) {
+//         let temp = arr[i];
+//         arr[i] = arr[j];
+//         arr[j] = temp;
+//       }
+//     }
+//   }
+//   return arr;
+// }
+// console.log(sort(arr));
+
+let arr = [10, -2, 0, -1, 7];
+
+// using two pointers approach
+function reverse(arr) {
+  let i = 0;
+  let j = arr.length - 1;
+
+  while (i <= j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    i++;
+    j--;
   }
   return arr;
 }
-console.log(sort(arr));
+console.log(reverse(arr));
