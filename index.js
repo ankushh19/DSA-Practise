@@ -87,22 +87,22 @@
 // console.log(reverse(arr));
 
 // Kaden's Algorithm to find the maximum sum of a contiguous subarray within the array
-let arr2 = [2, -3, 1, -5, 8];
+// let arr2 = [2, -3, 1, -5, 8];
 
-let i = 0;
-let sum = 0;
-let max = Number.NEGATIVE_INFINITY;
-while (i < arr2.length) {
-  sum = sum + arr2[i];
-  max = Math.max(sum, max);
+// let i = 0;
+// let sum = 0;
+// let max = Number.NEGATIVE_INFINITY;
+// while (i < arr2.length) {
+//   sum = sum + arr2[i];
+//   max = Math.max(sum, max);
 
-  if (sum < 0) {
-    sum = 0;
-  }
-  i++;
-}
+//   if (sum < 0) {
+//     sum = 0;
+//   }
+//   i++;
+// }
 
-console.log(max);
+// console.log(max);
 
 // Check Palindrome using two pointer approach
 
@@ -157,3 +157,16 @@ console.log(max);
 // }
 
 // console.log(palindromeSubstring(str));
+
+let arr = [2, 5, 7, 4, 8, 10];
+
+for (let turn = 1; turn < arr.length; turn++) {
+  for (let i = 0; i < arr.length - turn; i++) {
+    if (arr[i + 1] < arr[i]) {
+      let temp = arr[i + 1];
+      arr[i + 1] = arr[i];
+      arr[i] = temp;
+    }
+  }
+  console.log(arr);
+}
