@@ -160,113 +160,13 @@
 
 // let arr = [2, 5, 7, 4, 8, 10];
 
-// for (let turn = 1; turn < arr.length; turn++) {
-//   for (let i = 0; i < arr.length - turn; i++) {
-//     if (arr[i + 1] < arr[i]) {
-//       let temp = arr[i + 1];
-//       arr[i + 1] = arr[i];
-//       arr[i] = temp;
-//     }
-//   }
-//   console.log(arr);
-// }
-
-// // Naive Solution O(n^2)
-// function same(arr1, arr2) {
-//   if (arr1.length !== arr2.length) {
-//     return false;
-//   }
-//   for (let i = 0; i < arr1.length; i++) {
-//     let correctIndex = arr2.indexOf(arr1[i] ** 2);
-//     if (correctIndex === -1) {
-//       return false;
-//     }
-//     arr2.splice(correctIndex, 1);
-//   }
-//   return true;
-// }
-// let arr1 = [1, 2, 3, 2];
-// let arr2 = [9, 1, 4, 4];
-// console.log(same(arr1, arr2));
-
-// // Another approach O(n)
-// function same(arr1, arr2) {
-//   if (arr1.length !== arr2.length) {
-//     return false;
-//   }
-//   let frequencyCounter1 = {}
-//   let frequencyCounter2 = {}
-//   for(let val of arr1){
-//     frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1
-//   }
-//   for(let val of arr2){
-//     frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1
-//   }
-//   for(let key in frequencyCounter1){
-//     if(!(key ** 2 in frequencyCounter2)){
-//         return false
-//     }
-//     if(frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
-//         return false
-//     }
-//   }
-//   return true
-// }
-
-// print all substrings which only contain vowels in a string
-
-// function vowelSubstrings(str) {
-//   const vowels = ["a", "e", "i", "o", "u"];
-//   let start = 0;
-
-//   while (start < str.length) {
-//     let end = start;
-//     while (end < str.length && vowels.includes(str[end])) {
-//       end++;
-//     }
-//     if (start !== end) {
-//       console.log(str.substring(start, end));
-//     }
-//     start = end + 1;
-//   }
-// }
-
-// const inputStr= "missiiapi";
-// vowelSubstrings(inputStr);
-
-// Substring Max length which contain only vowels
-// function maxVowelLength(str) {
-//   const vowels = ["a", "e", "i", "o", "u"];
-//   let maxLength = 0;
-//   let currentLength = 0;
-
-//   for (let i = 0; i < str.length; i++) {
-//     if (vowels.includes(str[i])) {
-//       currentLength++;
-//       maxLength = Math.max(maxLength, currentLength);
-//     } else {
-//       currentLength = 0;
-//     }
-//   }
-
-//   return maxLength;
-// }
-
-// const inputStr = "missiiapi";
-// console.log(maxVowelLength(inputStr));
-
-// find index of first consonant
-function firstConsonant(str) {
-  const vowels = ["a", "e", "i", "o", "u"];
-
-  for (let i = 0; i < str.length; i++) {
-    if (!vowels.includes(str[i])) {
-      return i;
+for (let turn = 1; turn < arr.length; turn++) {
+  for (let i = 0; i < arr.length - turn; i++) {
+    if (arr[i + 1] < arr[i]) {
+      let temp = arr[i + 1];
+      arr[i + 1] = arr[i];
+      arr[i] = temp;
     }
   }
-
-  return -1;
+  console.log(arr);
 }
-
-const inputStr = "aaiiesp";
-console.log(firstConsonant(inputStr));
