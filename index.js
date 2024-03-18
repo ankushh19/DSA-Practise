@@ -160,13 +160,39 @@
 
 // let arr = [2, 5, 7, 4, 8, 10];
 
-for (let turn = 1; turn < arr.length; turn++) {
-  for (let i = 0; i < arr.length - turn; i++) {
-    if (arr[i + 1] < arr[i]) {
-      let temp = arr[i + 1];
-      arr[i + 1] = arr[i];
-      arr[i] = temp;
-    }
-  }
-  console.log(arr);
-}
+// for (let turn = 1; turn < arr.length; turn++) {
+//   for (let i = 0; i < arr.length - turn; i++) {
+//     if (arr[i + 1] < arr[i]) {
+//       let temp = arr[i + 1];
+//       arr[i + 1] = arr[i];
+//       arr[i] = temp;
+//     }
+//   }
+//   console.log(arr);
+// }
+
+// function validAnagram(first, second) {
+//   if (first.length !== second.length) {
+//     return false;
+//   }
+
+//   const lookup = {};
+
+//   for (let i = 0; i < first.length; i++) {
+//     let letter = first[i];
+//     lookup[letter] ? (lookup[letter] += 1) : (lookup[letter] = 1);
+//   }
+
+//   for (let i = 0; i < second.length; i++) {
+//     let letter = second[i];
+
+//     if (!lookup[letter]) {
+//       return false;
+//     } else {
+//       lookup[letter] -= 1;
+//     }
+//   }
+//   return true;
+// }
+
+// console.log(validAnagram("circus", "sucric"));
