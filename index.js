@@ -196,3 +196,25 @@
 // }
 
 // console.log(validAnagram("circus", "sucric"));
+
+// Recursion
+// Power
+// function pow(n, b) {
+//   if (b === 0) {
+//     return 1;
+//   }
+//   let ans = pow(n, b - 1);
+//   return n * ans;
+// }
+// console.log(pow(2, 5));
+
+// Fibonnaci
+// function fibo(n) {
+//   if (n == 0 || n == 1) {
+//     return n;
+//   }
+//   let f1 = fibo(n - 1);
+//   let f2 = fibo(n - 2);
+//   return f1 + f2;
+// }
+// console.log(fibo(6));
