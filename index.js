@@ -437,26 +437,38 @@
 
 // Time Complexity - O(n)
 
-console.log(findLongestSubstring("")); // 0
-console.log(findLongestSubstring("rithmschool")); // 7
-findLongestSubstring("thisisawesome"); // 6
-findLongestSubstring("thecatinthehat"); // 7
-findLongestSubstring("bbbbbb"); // 1
-findLongestSubstring("longestsubstring"); // 8
-findLongestSubstring("thisishowwedoit"); // 6
+// console.log(findLongestSubstring("")); // 0
+// console.log(findLongestSubstring("rithmschool")); // 7
+// findLongestSubstring("thisisawesome"); // 6
+// findLongestSubstring("thecatinthehat"); // 7
+// findLongestSubstring("bbbbbb"); // 1
+// findLongestSubstring("longestsubstring"); // 8
+// findLongestSubstring("thisishowwedoit"); // 6
 
-function findLongestSubstring(str) {
-  let longest = 0;
-  let seen = {};
-  let start = 0;
+// function findLongestSubstring(str) {
+//   let longest = 0;
+//   let seen = {};
+//   let start = 0;
 
-  for (let i = 0; i < str.length; i++) {
-    let char = str[i];
-    if (seen[char]) {
-      start = Math.max(start, seen[char]);
-    }
-    longest = Math.max(longest, i - start + 1);
-    seen[char] = i + 1;
+//   for (let i = 0; i < str.length; i++) {
+//     let char = str[i];
+//     if (seen[char]) {
+//       start = Math.max(start, seen[char]);
+//     }
+//     longest = Math.max(longest, i - start + 1);
+//     seen[char] = i + 1;
+//   }
+//   return longest;
+// }
+
+let str = "abc";
+perm(str, "");
+function perm(ques, ans) {
+  if (ques.length === 0) {
+    console.log(ans);
+    return;
   }
-  return longest;
+  for (let i = 0; i < ques.length; i++) {
+    perm(ques.substr(0, i) + ques.substr(i + 1), ans + ques.charAt(i));
+  }
 }
