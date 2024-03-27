@@ -461,14 +461,50 @@
 //   return longest;
 // }
 
-let str = "abc";
-perm(str, "");
-function perm(ques, ans) {
-  if (ques.length === 0) {
-    console.log(ans);
-    return;
+// Permutation
+// let str = "abc";
+// perm(str, "");
+// function perm(ques, ans) {
+//   if (ques.length === 0) {
+//     console.log(ans);
+//     return;
+//   }
+//   for (let i = 0; i < ques.length; i++) {
+//     perm(ques.substr(0, i) + ques.substr(i + 1), ans + ques.charAt(i));
+//   }
+// }
+
+// Pure Recursion
+// Example : Collect all odd values from an array
+// function collectOddValues(arr) {
+//   let newArr = [];
+//   if (arr.length === 0) {
+//     return newArr;
+//   }
+//   if (arr[0] % 2 !== 0) {
+//     newArr.push(arr[0]);
+//   }
+//   newArr = newArr.concat(collectOddValues(arr.slice(1)));
+//   return newArr;
+// }
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// console.log(collectOddValues(arr));
+
+// Helper Method
+// Example : Collect all odd values from an array
+function collectOddValues(arr) {
+  let result = [];
+  function helper(helperInput) {
+    if (helperInput.length === 0) {
+      return;
+    }
+    if (helperInput[0] % 2 !== 0) {
+      result.push(helperInput[0]);
+    }
+    helper(helperInput.slice(1));
   }
-  for (let i = 0; i < ques.length; i++) {
-    perm(ques.substr(0, i) + ques.substr(i + 1), ans + ques.charAt(i));
-  }
+  helper(arr);
+  return result;
 }
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(collectOddValues(arr));
