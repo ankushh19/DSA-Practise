@@ -492,19 +492,30 @@
 
 // Helper Method
 // Example : Collect all odd values from an array
-function collectOddValues(arr) {
-  let result = [];
-  function helper(helperInput) {
-    if (helperInput.length === 0) {
-      return;
-    }
-    if (helperInput[0] % 2 !== 0) {
-      result.push(helperInput[0]);
-    }
-    helper(helperInput.slice(1));
+// function collectOddValues(arr) {
+//   let result = [];
+//   function helper(helperInput) {
+//     if (helperInput.length === 0) {
+//       return;
+//     }
+//     if (helperInput[0] % 2 !== 0) {
+//       result.push(helperInput[0]);
+//     }
+//     helper(helperInput.slice(1));
+//   }
+//   helper(arr);
+//   return result;
+// }
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// console.log(collectOddValues(arr));
+
+// Coinflip Possibilities
+function coinflip(n, ans) {
+  if (n == 0) {
+    console.log(ans);
+    return;
   }
-  helper(arr);
-  return result;
+  coinflip(n - 1, ans + "H");
+  coinflip(n - 1, ans + "T");
 }
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-console.log(collectOddValues(arr));
+console.log(coinflip(3, ""));
