@@ -510,12 +510,34 @@
 // console.log(collectOddValues(arr));
 
 // Coinflip Possibilities
-function coinflip(n, ans) {
-  if (n == 0) {
-    console.log(ans);
-    return;
+// function coinflip(n, ans) {
+//   if (n == 0) {
+//     console.log(ans);
+//     return;
+//   }
+//   coinflip(n - 1, ans + "H");
+//   coinflip(n - 1, ans + "T");
+// }
+// console.log(coinflip(3, ""));
+
+// Partition
+let arr = [5, 7, 2, 3, 8, 9, 1, 4];
+partition(arr);
+function partition(arr) {
+  let ei = arr.length - 1;
+  let si = 0;
+  let pi = si;
+  let item = arr[ei];
+  for (let i = si; i < ei; i++) {
+    if (arr[i] < item) {
+      let temp = arr[i];
+      arr[i] = arr[pi];
+      arr[pi] = temp;
+      pi++;
+    }
   }
-  coinflip(n - 1, ans + "H");
-  coinflip(n - 1, ans + "T");
+  let temp = arr[pi];
+  arr[pi] = arr[ei];
+  arr[ei] = temp;
+  console.log(arr);
 }
-console.log(coinflip(3, ""));
