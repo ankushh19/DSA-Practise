@@ -520,24 +520,79 @@
 // }
 // console.log(coinflip(3, ""));
 
-// Partition
-let arr = [5, 7, 2, 3, 8, 9, 1, 4];
-partition(arr);
-function partition(arr) {
-  let ei = arr.length - 1;
-  let si = 0;
-  let pi = si;
-  let item = arr[ei];
-  for (let i = si; i < ei; i++) {
-    if (arr[i] < item) {
-      let temp = arr[i];
-      arr[i] = arr[pi];
-      arr[pi] = temp;
-      pi++;
+// STEP ONE
+// Merge two Sorted Arrays
+function merge(arr1, arr2) {
+  let results = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr2[j] > arr1[i]) {
+      results.push(arr1[i]);
+      i++;
+    } else {
+      results.push(arr2[j]);
+      j++;
     }
   }
-  let temp = arr[pi];
-  arr[pi] = arr[ei];
-  arr[ei] = temp;
-  console.log(arr);
+  while (i < arr1.length) {
+    results.push(arr1[i]);
+    i++;
+  }
+  while (j < arr2.length) {
+    results.push(arr2[j]);
+    j++;
+  }
+  return results;
 }
+
+// console.log(merge([1, 10, 50], [2, 14, 99, 100]));
+
+// STEP TWO
+// Merge Sort
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
+console.log(mergeSort([10, 24, 76, 73, 72, 1, 9]));
+
+// STEP ONE
+
+// Pivot or Partition of array
+function pivot(arr, start = 0, end = arr.length + 1) {
+  function swap(array, i, j) {
+    let temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+
+  let pivot = arr[start];
+  let swapIdx = start;
+
+  for (let i = start + 1; i < arr.length; i++) {
+    if (pivot > arr[i]) {
+      swapIdx++;
+      swap(arr, swapIdx, i);
+    }
+  }
+  swap(arr, start, swapIdx);
+  return swapIdx;
+}
+let arr = [100, -3, 4, 6, 9, 1, 2, 5, 3];
+
+// STEP TWO
+
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right);
+    // left
+    quickSort(arr, left, pivotIndex - 1);
+    // right
+    quickSort(arr, pivotIndex + 1, right);
+  }
+  return arr;
+}
+console.log(quickSort(arr));
