@@ -171,7 +171,7 @@
 //   console.log(arr);
 // }
 
-// function validAnagram(first, second) {
+// function validgram(first, second) {
 //   if (first.length !== second.length) {
 //     return false;
 //   }
@@ -522,77 +522,267 @@
 
 // STEP ONE
 // Merge two Sorted Arrays
-function merge(arr1, arr2) {
-  let results = [];
-  let i = 0;
-  let j = 0;
-  while (i < arr1.length && j < arr2.length) {
-    if (arr2[j] > arr1[i]) {
-      results.push(arr1[i]);
-      i++;
-    } else {
-      results.push(arr2[j]);
-      j++;
+// function merge(arr1, arr2) {
+//   let results = [];
+//   let i = 0;
+//   let j = 0;
+//   while (i < arr1.length && j < arr2.length) {
+//     if (arr2[j] > arr1[i]) {
+//       results.push(arr1[i]);
+//       i++;
+//     } else {
+//       results.push(arr2[j]);
+//       j++;
+//     }
+//   }
+//   while (i < arr1.length) {
+//     results.push(arr1[i]);
+//     i++;
+//   }
+//   while (j < arr2.length) {
+//     results.push(arr2[j]);
+//     j++;
+//   }
+//   return results;
+// }
+
+// // console.log(merge([1, 10, 50], [2, 14, 99, 100]));
+
+// // STEP TWO
+// // Merge Sort
+// function mergeSort(arr) {
+//   if (arr.length <= 1) return arr;
+//   let mid = Math.floor(arr.length / 2);
+//   let left = mergeSort(arr.slice(0, mid));
+//   let right = mergeSort(arr.slice(mid));
+//   return merge(left, right);
+// }
+// console.log(mergeSort([10, 24, 76, 73, 72, 1, 9]));
+
+// // STEP ONE
+
+// // Pivot or Partition of array
+// function pivot(arr, start = 0, end = arr.length + 1) {
+//   function swap(array, i, j) {
+//     let temp = array[i];
+//     array[i] = array[j];
+//     array[j] = temp;
+//   }
+
+//   let pivot = arr[start];
+//   let swapIdx = start;
+
+//   for (let i = start + 1; i < arr.length; i++) {
+//     if (pivot > arr[i]) {
+//       swapIdx++;
+//       swap(arr, swapIdx, i);
+//     }
+//   }
+//   swap(arr, start, swapIdx);
+//   return swapIdx;
+// }
+// let arr = [100, -3, 4, 6, 9, 1, 2, 5, 3];
+
+// // STEP TWO
+
+// function quickSort(arr, left = 0, right = arr.length - 1) {
+//   if (left < right) {
+//     let pivotIndex = pivot(arr, left, right);
+//     // left
+//     quickSort(arr, left, pivotIndex - 1);
+//     // right
+//     quickSort(arr, pivotIndex + 1, right);
+//   }
+//   return arr;
+// }
+// console.log(quickSort(arr));
+
+/*------ Practise For Test ------*/
+// Searching
+// function linearSearch(arr, target) {
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === target) {
+//       return i;
+//     }
+//   }
+//   return -1;
+// }
+// console.log(linearSearch([10, 15, 20, 25, 30], 15)); // 1
+
+// function binarySearch(arr,target){
+//  let start = 0;
+//  let end = arr.length - 1;
+//  while(start <= end){
+//   let middle = Math.floor((start + end) / 2)
+//   if(arr[middle] === target) return middle;
+//   if(arr[middle] > target){
+//     end = middle - 1;
+//   }
+//   if(arr[middle] < target){
+//     start = middle + 1;
+//   }
+//  }
+//  return -1;
+// }
+
+// Anagram
+// function validAnagram(first, second) {
+//   if (first.length !== second.length) {
+//     return false;
+//   }
+//   const lookup = {};
+//   for (let i = 0; i < first.length; i++) {
+//     let letter = first[i];
+//     lookup[letter] ? (lookup[letter] += 1) : (lookup[letter] = 1);
+//   }
+//   for (let i = 0; i < second.length; i++) {
+//     let letter = second[i];
+//     if (!lookup[letter]) {
+//       return false;
+//     } else {
+//       lookup[letter] -= 1;
+//     }
+//   }
+//   return true;
+// }
+// console.log(validAnagram("circus", "sucric"));
+
+// frequency counter
+// function same(arr1, arr2){
+//   if(arr1.length !== arr2.length){
+//     return false;
+//   }
+//   let frequencyCounter1 = {}
+//   let frequencyCounter2 = {}
+//   for(let val of arr1){
+//     frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+//   }
+//   for(let val of arr2){
+//     frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+//   }
+//   for(let key in frequencyCounter1){
+//     if(!(key ** 2 in frequencyCounter2)){
+//       return false
+//     }
+//     if(frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
+//       return false
+//     }
+//   }
+//   return true
+// }
+
+// function maxSubarraySum(arr, num){
+//   let maxSum = 0;
+//   let tempSum = 0;
+//   if(arr.length < num) {
+//     return null;
+//   }
+//   for(let i = 0; i < num; i++){
+//     maxSum += arr[i]
+//   }
+//   tempSum = maxSum;
+//   for(let i = num; i < arr.length; i++){
+//     tempSum = tempSum - arr[i - num] + arr[i]
+//     maxSum = Math.max(maxSum,tempSum)
+//   }
+//   return maxSum;
+// }
+
+// Two Sum (Leetcode)
+
+// var twoSum = function(nums, target) {
+//   for(let i = 0; i < nums.length; i++){
+//     for(let j = i + 1; j < nums.length; j++){
+//         if(nums[i] + nums[j] === target){
+//             return[i , j]
+//         }
+//     }
+//   }
+//   return -1
+// };
+
+// Next Permutation
+// let arr = [1, 2, 3];
+// console.log(nextPermutation(arr));
+// function nextPermutation(nums) {
+//   let p = -1;
+//   for (let i = nums.length - 1; i > 0; i--) {
+//     if (nums[i - 1] < nums[i]) {
+//       p = i - 1;
+//       break;
+//     }
+//   }
+//   if (p == -1) {
+//     reverse(nums, p, arr.length - 1);
+//   }
+//   for (let i = nums.length - 1; i > p; i--) {
+//     if (nums[i] > nums[p]) {
+//       let temp = nums[i];
+//       nums[i] = nums[p];
+//       nums[p] = temp;
+//       break;
+//     }
+//   }
+//   reverse(nums, p + 1, nums.length - 1);
+// }
+// function reverse(arr, i, j) {
+//   while (i <= j) {
+//     let temp = arr[i];
+//     arr[i] = arr[j];
+//     arr[j] = temp;
+//     i++;
+//     j--;
+//   }
+//   return arr;
+// }
+
+// let arr = [10, -2, 0, -1, 7];
+
+// // using two pointers approach
+// function reverse(arr) {
+//   let i = 0;
+//   let j = arr.length - 1;
+
+//   while (i <= j) {
+//     let temp = arr[i];
+//     arr[i] = arr[j];
+//     arr[j] = temp;
+//     i++;
+//     j--;
+//   }
+//   return arr;
+// }
+
+// Write a program to get total vowel count from String ?
+// const getVowelCount = (inputStr) => {
+//   let totalVowelCount = 0;
+//   for (let i = 0; i < inputStr.length; i++) {
+//     let char = inputStr[i];
+//     if (char == "a" || char == "e" || char == "i" || char == "o" || char == "u")
+//       totalVowelCount++;
+//   }
+//   return totalVowelCount;
+// };
+// console.log(getVowelCount("hello how "));
+
+function findFirstOccurrence(haystack, needle) {
+  // Check for edge cases
+  if (needle === "") return 0;
+  if (needle.length > haystack.length) return -1;
+
+  for (let i = 0; i <= haystack.length - needle.length; i++) {
+    let found = true;
+    for (let j = 0; j < needle.length; j++) {
+      if (haystack[i + j] !== needle[j]) {
+        found = false;
+        break;
+      }
     }
+    if (found) return i;
   }
-  while (i < arr1.length) {
-    results.push(arr1[i]);
-    i++;
-  }
-  while (j < arr2.length) {
-    results.push(arr2[j]);
-    j++;
-  }
-  return results;
+
+  return -1;
 }
 
-// console.log(merge([1, 10, 50], [2, 14, 99, 100]));
-
-// STEP TWO
-// Merge Sort
-function mergeSort(arr) {
-  if (arr.length <= 1) return arr;
-  let mid = Math.floor(arr.length / 2);
-  let left = mergeSort(arr.slice(0, mid));
-  let right = mergeSort(arr.slice(mid));
-  return merge(left, right);
-}
-console.log(mergeSort([10, 24, 76, 73, 72, 1, 9]));
-
-// STEP ONE
-
-// Pivot or Partition of array
-function pivot(arr, start = 0, end = arr.length + 1) {
-  function swap(array, i, j) {
-    let temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-
-  let pivot = arr[start];
-  let swapIdx = start;
-
-  for (let i = start + 1; i < arr.length; i++) {
-    if (pivot > arr[i]) {
-      swapIdx++;
-      swap(arr, swapIdx, i);
-    }
-  }
-  swap(arr, start, swapIdx);
-  return swapIdx;
-}
-let arr = [100, -3, 4, 6, 9, 1, 2, 5, 3];
-
-// STEP TWO
-
-function quickSort(arr, left = 0, right = arr.length - 1) {
-  if (left < right) {
-    let pivotIndex = pivot(arr, left, right);
-    // left
-    quickSort(arr, left, pivotIndex - 1);
-    // right
-    quickSort(arr, pivotIndex + 1, right);
-  }
-  return arr;
-}
-console.log(quickSort(arr));
+// Example usage:
+console.log(findFirstOccurrence("sadbutsad", "sad")); // Output: 0
