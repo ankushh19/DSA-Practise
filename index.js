@@ -765,24 +765,72 @@
 // };
 // console.log(getVowelCount("hello how "));
 
-function findFirstOccurrence(haystack, needle) {
-  // Check for edge cases
-  if (needle === "") return 0;
-  if (needle.length > haystack.length) return -1;
+// function findFirstOccurrence(haystack, needle) {
+//   // Check for edge cases
+//   if (needle === "") return 0;
+//   if (needle.length > haystack.length) return -1;
 
-  for (let i = 0; i <= haystack.length - needle.length; i++) {
-    let found = true;
-    for (let j = 0; j < needle.length; j++) {
-      if (haystack[i + j] !== needle[j]) {
-        found = false;
-        break;
-      }
+//   for (let i = 0; i <= haystack.length - needle.length; i++) {
+//     let found = true;
+//     for (let j = 0; j < needle.length; j++) {
+//       if (haystack[i + j] !== needle[j]) {
+//         found = false;
+//         break;
+//       }
+//     }
+//     if (found) return i;
+//   }
+
+//   return -1;
+// }
+
+// // Example usage:
+// console.log(findFirstOccurrence("sadbutsad", "sad")); // Output: 0
+
+// Find Max
+// let arr = [1, 4, 10, 50, 76, 34, 99];
+
+// function findMax(arr) {
+//   let max = Number.NEGATIVE_INFINITY;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > max) {
+//       max = arr[i];
+//     }
+//   }
+//   return max;
+// }
+// console.log(findMax(arr));
+
+// 2d Array
+// let arr = [
+//   [1, 2, 4],
+//   [5, 6, 7],
+//   [8, 9, 10],
+// ];
+// function twoArray(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       console.log(arr[i][j]);
+//     }
+//   }
+// }
+// twoArray(arr);
+
+// Waveprint
+let arr = [
+  [1, 2, 4],
+  [5, 6, 7],
+  [8, 9, 10],
+];
+
+for (let col = 0; col < arr[0].length; col++) {
+  if (col % 2 == 0) {
+    for (let row = 0; row < arr.length; row++) {
+      console.log(arr[row][col]);
     }
-    if (found) return i;
+  } else {
+    for (let row = arr.length - 1; row >= 0; row--) {
+      console.log(arr[row][col]);
+    }
   }
-
-  return -1;
 }
-
-// Example usage:
-console.log(findFirstOccurrence("sadbutsad", "sad")); // Output: 0
