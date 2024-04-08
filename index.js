@@ -926,37 +926,44 @@
 // STEP ONE
 
 // Pivot or Partition of array
-function pivot(arr, start = 0, end = arr.length + 1) {
-  function swap(array, i, j) {
-    let temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
+// function pivot(arr, start = 0, end = arr.length + 1) {
+//   function swap(array, i, j) {
+//     let temp = array[i];
+//     array[i] = array[j];
+//     array[j] = temp;
+//   }
 
-  let pivot = arr[start];
-  let swapIdx = start;
+//   let pivot = arr[start];
+//   let swapIdx = start;
 
-  for (let i = start + 1; i < arr.length; i++) {
-    if (pivot > arr[i]) {
-      swapIdx++;
-      swap(arr, swapIdx, i);
-    }
-  }
-  swap(arr, start, swapIdx);
-  return swapIdx;
+//   for (let i = start + 1; i < arr.length; i++) {
+//     if (pivot > arr[i]) {
+//       swapIdx++;
+//       swap(arr, swapIdx, i);
+//     }
+//   }
+//   swap(arr, start, swapIdx);
+//   return swapIdx;
+// }
+// let arr = [100, -3, 4, 6, 9, 1, 2, 5, 3];
+
+// // STEP TWO
+
+// function quickSort(arr, left = 0, right = arr.length - 1) {
+//   if (left < right) {
+//     let pivotIndex = pivot(arr, left, right);
+//     // left
+//     quickSort(arr, left, pivotIndex - 1);
+//     // right
+//     quickSort(arr, pivotIndex + 1, right);
+//   }
+//   return arr;
+// }
+// console.log(quickSort(arr));
+
+let arr = [2, 3, 4, 5];
+function firstAdd(arr, elem) {
+  let newArr = [elem, ...arr];
+  return newArr;
 }
-let arr = [100, -3, 4, 6, 9, 1, 2, 5, 3];
-
-// STEP TWO
-
-function quickSort(arr, left = 0, right = arr.length - 1) {
-  if (left < right) {
-    let pivotIndex = pivot(arr, left, right);
-    // left
-    quickSort(arr, left, pivotIndex - 1);
-    // right
-    quickSort(arr, pivotIndex + 1, right);
-  }
-  return arr;
-}
-console.log(quickSort(arr));
+console.log(firstAdd(arr, 1));
