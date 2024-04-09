@@ -961,9 +961,25 @@
 // }
 // console.log(quickSort(arr));
 
-let arr = [2, 3, 4, 5];
-function firstAdd(arr, elem) {
-  let newArr = [elem, ...arr];
-  return newArr;
+// let arr = [2, 3, 4, 5];
+// function firstAdd(arr, elem) {
+//   let newArr = [elem, ...arr];
+//   return newArr;
+// }
+// console.log(firstAdd(arr, 1));
+
+// maximum subarray
+let arr = [2, 3, 4, 5, 7];
+
+let max = 0;
+
+for (let j = 0; j < arr.length; j++) {
+  let sum = 0;
+  for (let i = j; i < arr.length; i++) {
+    sum = sum + arr[i];
+    if (sum > max) {
+      max = sum;
+    }
+  }
 }
-console.log(firstAdd(arr, 1));
+console.log(max);
