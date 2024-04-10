@@ -969,17 +969,36 @@
 // console.log(firstAdd(arr, 1));
 
 // maximum subarray
-let arr = [2, 3, 4, 5, 7];
+// let arr = [2, 3, 4, 5, 7];
 
-let max = 0;
+// let max = 0;
 
-for (let j = 0; j < arr.length; j++) {
-  let sum = 0;
-  for (let i = j; i < arr.length; i++) {
-    sum = sum + arr[i];
-    if (sum > max) {
-      max = sum;
+// for (let j = 0; j < arr.length; j++) {
+//   let sum = 0;
+//   for (let i = j; i < arr.length; i++) {
+//     sum = sum + arr[i];
+//     if (sum > max) {
+//       max = sum;
+//     }
+//   }
+// }
+// console.log(max);
+
+// WavePrint
+let arr = [
+  [1, 2, 4],
+  [5, 6, 7],
+  [8, 9, 10],
+];
+
+for (let col = 0; col < arr[0].length; col++) {
+  if (col % 2 == 0) {
+    for (let row = 0; row < arr.length; row++) {
+      console.log(arr[row][col]);
+    }
+  } else {
+    for (let row = arr.length - 1; row >= 0; row--) {
+      console.log(arr[row][col]);
     }
   }
 }
-console.log(max);
