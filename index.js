@@ -985,20 +985,20 @@
 // console.log(max);
 
 // WavePrint
-let arr = [
-  [1, 2, 4],
-  [5, 6, 7],
-  [8, 9, 10],
-];
+// let arr = [
+//   [1, 2, 4],
+//   [5, 6, 7],
+//   [8, 9, 10],
+// ];
 
-for (let col = 0; col < arr[0].length; col++) {
-  if (col % 2 == 0) {
-    for (let row = 0; row < arr.length; row++) {
-      console.log(arr[row][col]);
-    }
-  } else {
-    for (let row = arr.length - 1; row >= 0; row--) {
-      console.log(arr[row][col]);
-    }
-  }
-}
+// for (let col = 0; col < arr[0].length; col++) {
+//   if (col % 2 == 0) {
+//     for (let row = 0; row < arr.length; row++) {
+//       console.log(arr[row][col]);
+//     }
+//   } else {
+//     for (let row = arr.length - 1; row >= 0; row--) {
+//       console.log(arr[row][col]);
+//     }
+//   }
+// }
