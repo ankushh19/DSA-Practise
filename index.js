@@ -1002,3 +1002,90 @@
 //     }
 //   }
 // }
+
+// Anagram
+// function anagram(str1, str2) {
+//   if (str1.length !== str2.length) {
+//     return false;
+//   }
+//   const sortedStr1 = str1.split("").sort().join("");
+//   const sortedStr2 = str2.split("").sort().join("");
+//   return sortedStr1 === sortedStr2;
+// }
+
+// console.log(anagram("listen", "silent"));
+
+// AJAX Call
+// const xhttp = new XMLHttpRequest();
+
+// xhttp.open("GET", "https://fakestoreapi.com/products/1", true);
+
+// xhttp.send();
+
+// xhttp.onreadystatechange = function () {
+//   if (xhttp.readyState == 4 && xhttp.status == 200) {
+//     console.log(xhttp);
+//     console.log(JSON.parse(xhttp.responseText));
+//   }
+//   if (xhttp.status !== 200) {
+//     console.log("Something went wrong");
+//   }
+// };
+
+// Check Prime
+// function checkPrime(num) {
+//   for (i = 2; i <= num / 2; i++) {
+//     if (num % i == 0) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
+
+// Largest Number in Array
+// function findNum(arr) {
+//   let largeNum = 0;
+//   for (let num of arr) {
+//     if (num > largeNum) {
+//       largeNum = num;
+//     }
+//   }
+//   return largeNum;
+// }
+
+// Return no. of vowels from string
+// let str1 = "hello world";
+
+// function checkVowel(str) {
+//   let vowels = ["a", "e", "i", "o", "u"];
+//   let count = 0;
+//   for (let newletter of vowels) {
+//     for (let letter of str) {
+//       if (letter === newletter) {
+//         count += 1;
+//       }
+//     }
+//   }
+//   return count;
+// }
+// console.log(checkVowel(str1));
+
+// Fetch Data using Async Await
+// async function fetchData(URL) {
+//   let response = await fetch(URL);
+//   let jsonData = await response.json();
+//   let { name } = jsonData.data;
+//   console.log(name);
+// }
+
+// fetchData("https://reqres.in/api/products/3");
+
+// Fetch data using Promise
+// function fetchData(url) {
+//   fetch(url)
+//     .then((res) => res.json())
+//     .then((data) => console.log(data))
+//     .catch((err) => console.log(err));
+// }
+
+// fetchData("https://reqres.in/api/products/3");
