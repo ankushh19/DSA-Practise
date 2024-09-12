@@ -1089,3 +1089,19 @@
 // }
 
 // fetchData("https://reqres.in/api/products/3");
+
+// Remove Duplicates
+
+let arr1 = [1, 2, 3, 4, 2, 3, 5, 1];
+
+function newArr(arr) {
+  let resArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (resArr.indexOf(arr[i]) === -1) {
+      resArr.push(arr[i]);
+    }
+  }
+  return resArr;
+}
+
+console.log(newArr(arr1));
