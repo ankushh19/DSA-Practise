@@ -1092,16 +1092,26 @@
 
 // Remove Duplicates
 
-let arr1 = [1, 2, 3, 4, 2, 3, 5, 1];
+// let arr1 = [1, 2, 3, 4, 2, 3, 5, 1];
 
-function newArr(arr) {
-  let resArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (resArr.indexOf(arr[i]) === -1) {
-      resArr.push(arr[i]);
-    }
-  }
-  return resArr;
+// function newArr(arr) {
+//   let resArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (resArr.indexOf(arr[i]) === -1) {
+//       resArr.push(arr[i]);
+//     }
+//   }
+//   return resArr;
+// }
+
+// console.log(newArr(arr1));
+
+//  Hoisting
+function x() {
+  setTimeout(function () {
+    console.log(i);
+  }, 1000);
+  var i = 1;
 }
 
-console.log(newArr(arr1));
+x();
