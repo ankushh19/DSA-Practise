@@ -1107,11 +1107,25 @@
 // console.log(newArr(arr1));
 
 //  Hoisting
-function x() {
-  setTimeout(function () {
-    console.log(i);
-  }, 1000);
-  var i = 1;
-}
+// function x() {
+//   setTimeout(function () {
+//     console.log(i);
+//   }, 1000);
+//   var i = 1;
+// }
 
-x();
+// x();
+
+// Find the longest word in a string
+let str1 = "I am learning Javascript";
+function findLar(str) {
+  let words = str.split(" ");
+  let largeNum = "";
+  for (let word of words) {
+    if (word.length > largeNum.length) {
+      largeNum = word;
+    }
+  }
+  return largeNum;
+}
+console.log(findLar(str1));
