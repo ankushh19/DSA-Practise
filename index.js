@@ -1117,15 +1117,28 @@
 // x();
 
 // Find the longest word in a string
-let str1 = "I am learning Javascript";
-function findLar(str) {
-  let words = str.split(" ");
-  let largeNum = "";
-  for (let word of words) {
-    if (word.length > largeNum.length) {
-      largeNum = word;
-    }
+// let str1 = "I am learning Javascript";
+// function findLar(str) {
+//   let words = str.split(" ");
+//   let largeNum = "";
+//   for (let word of words) {
+//     if (word.length > largeNum.length) {
+//       largeNum = word;
+//     }
+//   }
+//   return largeNum;
+// }
+// console.log(findLar(str1));
+
+// How to reverse a string
+let str1 = "Hello World";
+
+function reverse(str) {
+  let newStr = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    newStr += str[i];
   }
-  return largeNum;
+  return newStr;
 }
-console.log(findLar(str1));
+
+console.log(str1);
